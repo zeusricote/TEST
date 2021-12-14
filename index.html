@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body onresize="onResize()">
+		<div class="parent parent-row">
+			<div class="parent parent-col child">
+				<div class="parent row" id="container_text">
+					<div class="child" id="container_debug">
+						<span>Clock: <span id="debug_clock"></span></span><br>
+						<span>FPS: <span id="debug_frametime"></span></span><br>
+					</div>
+					<div class="child" id="container_resources">
+						<span class="text-color-science">Science: </span><span id="text_owned_science">0</span><br>
+						<span class="text-color-stone">Stone: </span><span id="text_owned_stone">0</span><br>
+						<span class="text-color-copper">Copper: </span><span id="text_owned_copper">0</span><br>
+						<span class="text-color-tin">Tin: </span><span id="text_owned_tin">0</span>
+					</div>
+				</div>
+				<div style="text-align:center">Inventory</div>
+				<div class="parent parent-row border" id="container_inventory"></div>
+				<div style="text-align:center;text-align:right">[Shift] to place multiple</div>
+				<div class="parent parent-row" id="container_selection_upgrdesc">
+					<div class="parent parent-col child border">
+						<div style="text-align:center">Description</div>
+						<div id="container_selection_description"></div>
+					</div>
+					<div class="parent parent-col child border">
+						<div style="text-align:center">Upgrades</div>
+						<div id="container_selection_upgrades"></div>
+					</div>	
+				</div>
+				<div style="text-align:center">Menu</div>
+				<div class="parent parent-row border" id="container_buttons">
+					<div class="child" style="text-align:center">
+						<div style="text-align:center">Toggles</div>
+						<div class="btn btn-col-selected" id="button_use_fog">Generate new levels with fog</div><br>
+						<div class="btn btn-col-default" id="button_toggle_camera">Toggle Camera (on/off) <br>Control: WSAD/scroll</div><br>
+						<div class="btn btn-col-default" id="button_draw_debug">Draw debug (on/off)</div><br>
+					</div>
+					<div class="child" style="text-align:center">
+						<div style="text-align:center">New Level</div>
+						<div class="btn btn-col-default" id="button_new_level_16">16x16</div>
+						<div class="btn btn-col-default" id="button_new_level_32">32x32</div>
+						<div class="btn btn-col-default" id="button_new_level_64">64x64</div><br>
+						<div class="btn btn-col-default" id="button_new_level_128">128x128</div>
+						<div class="btn btn-col-default" id="button_new_level_256">256x256</div><br>
+						<div style="display:none" class="btn btn-col-disabled" id="button_new_level_512">512x512 (!)</div>
+						<div style="display:none" class="btn btn-col-disabled" id="button_new_level_1024">1024x1024 (!)</div>
+					</div>
+				</div>
+			</div>
+			<div class="child" id="canvas_wrapper">
+				<canvas id="canvas_level" style="z-index:0" class="border"></canvas>
+				<canvas id="canvas_particles" style="z-index:1"></canvas>
+				<canvas id="canvas_highlight" style="z-index:2"></canvas>
+				<canvas id="canvas_events" style="z-index:999999"></canvas>
+			</div>
+		</div>
+		
+		<div style="position:absolute;right:0;bottom:0">v0.3.1</div>
+		
+
+		<script type="text/javascript" src="src/PxLoader.js"></script>
+		<script type="text/javascript" src="src/PxLoaderImage.js"></script>
+		<script type="text/javascript" src="src/quadtree.js"></script>
+		<script type="text/javascript" src="src/perlin.js"></script>
+		<script type="text/javascript" src="src/decimal.min.js"></script>
+		<script type="text/javascript" src="src/pathfinding-browser.min.js"></script>
+		
+		<script> window.Game = {}; </script>
+		<script type="text/javascript" src="src/utils.js"></script>
+		<script type="text/javascript" src="src/particles.js"></script>
+		<script type="text/javascript" src="src/properties.js"></script>
+		<script type="text/javascript" src="src/objects.js"></script>
+		<script type="text/javascript" src="src/main.js"></script>
+	</body>
+</html>
